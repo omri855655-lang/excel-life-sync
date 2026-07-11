@@ -11,10 +11,11 @@ import Dashboard from "@/components/Dashboard";
 import DailyRoutine from "@/components/DailyRoutine";
 import AiDailyPlanner from "@/components/AiDailyPlanner";
 import PersonalPlanner from "@/components/PersonalPlanner";
-import DeeplyDashboard from "@/components/deeply/DeeplyDashboard";
+import ZoneFlowDashboard from "@/components/zoneflow/ZoneFlowDashboard";
 import PushNotificationToggle from "@/components/PushNotificationToggle";
 import NotificationBell from "@/components/NotificationBell";
-import { FileSpreadsheet, Moon, Sun, LogOut, BookOpen, Tv, LayoutDashboard, ListTodo, Briefcase, Download, Headphones, CalendarCheck, FolderKanban, GraduationCap, CalendarDays, Focus } from "lucide-react";
+import { AppearanceSettingsPanel } from "@/components/AppearanceSettings";
+import { FileSpreadsheet, Moon, Sun, LogOut, BookOpen, Tv, LayoutDashboard, ListTodo, Briefcase, Download, Headphones, CalendarCheck, FolderKanban, GraduationCap, CalendarDays, Focus, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
@@ -155,7 +156,11 @@ const Personal = () => {
             </TabsTrigger>
             <TabsTrigger value="deeply" className="gap-2">
               <Focus className="h-4 w-4" />
-              Deeply
+              ZoneFlow
+            </TabsTrigger>
+            <TabsTrigger value="settings" className="gap-2">
+              <Settings className="h-4 w-4" />
+              הגדרות
             </TabsTrigger>
           </TabsList>
         </div>
@@ -201,7 +206,15 @@ const Personal = () => {
         </TabsContent>
 
         <TabsContent value="deeply" className="flex-1 min-h-0 overflow-hidden m-0 p-0">
-          <DeeplyDashboard />
+          <ZoneFlowDashboard />
+        </TabsContent>
+
+        <TabsContent value="settings" className="flex-1 min-h-0 overflow-auto m-0 p-4">
+          <div className="mx-auto max-w-2xl space-y-6">
+            <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+              <AppearanceSettingsPanel />
+            </div>
+          </div>
         </TabsContent>
       </Tabs>
 

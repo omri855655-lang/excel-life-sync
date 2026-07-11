@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
+import { useBackgroundTheme } from "@/hooks/useBackgroundTheme";
 import PinGate, { usePinGate } from "@/components/PinGate";
 import WorkTasks from "./pages/WorkTasks";
 import Personal from "./pages/Personal";
@@ -14,6 +15,7 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const AppContent = () => {
+  useBackgroundTheme();
   const { verified, verify } = usePinGate();
 
   if (!verified) {
